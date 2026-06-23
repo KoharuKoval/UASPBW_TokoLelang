@@ -1,59 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+#  Aplikasi Web Toko Lelang Online (Tugas UAS PBW)
+Muhammad Athallah Assyarif (2408107010088)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Halo! Selamat datang di repositori proyek **Toko Lelang Online**. Aplikasi web ini saya bangun menggunakan framework **Laravel** sebagai pemenuhan tugas akhir untuk mata kuliah **Pemrograman Berbasis Web (PBW)**. 
 
-## About Laravel
+Inti dari aplikasi ini adalah platform lelang sederhana di mana pengguna bisa saling mendaftarkan barang dan mengajukan penawaran harga (bidding) secara kompetitif dalam batas waktu yang sudah ditentukan.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+##  Apa Saja yang Bisa Dilakukan di Web Ini?
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* **Daftar & Masuk Akun (Autentikasi):** Web ini aman karena dilengkapi sistem login dan register bawaan Laravel. Pengguna harus masuk dulu sebelum bisa melihat katalog atau ikut menawar barang.
+* **Lihat Katalog Barang (Read):** Halaman dashboard utama menampilkan semua barang yang sedang dilelang lengkap dengan harganya saat ini.
+* **Daftarkan Barang Baru (CRUD):** Pengguna bisa memasukkan barang lelang baru, mengisi deskripsi, menentukan harga awal, serta mengatur kapan sesi lelang dimulai dan berakhir.
+* **Sistem Tawar-Menawar Dinamis (Bidding):** Ini fitur utamanya. Di sisi backend, saya membuat validasi ketat di mana sistem otomatis menolak jika ada pengguna yang memasukkan harga penawaran yang lebih rendah atau sama dengan tawaran tertinggi saat ini.
+* **Hitung Mundur Waktu (Real-Time Countdown):** Biar kerasa seperti lelang bervolume tinggi, saya menambahkan script JavaScript murni untuk menampilkan sisa waktu lelang yang terus berkurang setiap detiknya di halaman katalog dan detail barang.
+* **Tampilan Rapi & Responsif:** Seluruh antarmuka web ini didesain menggunakan **Tailwind CSS v4** agar terlihat bersih, modern, dan nyaman dilihat di laptop maupun HP.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+##  Teknologi di Balik Layar
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Framework:** Laravel 12
+* **Database:** MySQL
+* **UI Styling:** Tailwind CSS v4 (via CDN)
+* **Bahasa Pemrograman:** PHP & JavaScript murni (Vanilla JS)
+* **Server Lokal:** XAMPP (Apache & MySQL)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+##  Cara Menjalankan Proyek Ini di Komputer Lokal
 
-### Premium Partners
+Jika Anda ingin menguji coba proyek ini di lokal, silakan ikuti langkah-langkah santai berikut:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 1. Download Proyek
+Clone repositori ini ke komputer Anda atau langsung download file ZIP-nya:
 
-## Contributing
+git clone https://github.com/KoharuKoval/UASPBW_TokoLelang.git
+cd NAMA_REPOSITORI
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. Install Library Vendor
+Buka terminal/CMD di dalam folder proyek, lalu install library Laravel yang dibutuhkan menggunakan composer:
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+composer install
+3. Atur File .env (Environment)
+Salin file .env.example dan ubah namanya menjadi .env:
 
-## Security Vulnerabilities
+  cp .env.example .env
+Buka file .env tersebut pakai VS Code, lalu pastikan nama databasenya sudah diarahkan ke database kita:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Code snippet
+  DB_CONNECTION=mysql
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=toko_lelang
+  DB_USERNAME=root
+  DB_PASSWORD=
 
-## License
+  
+4. Buat Kunci Aplikasi (Key Generate)
+Jalankan perintah ini di CMD agar Laravel membuatkan kunci keamanan baru:
+php artisan key:generate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. Siapkan Database
+Nyalakan XAMPP (Start Apache dan MySQL).
+
+Buka browser ke alamat http://localhost/phpmyadmin/ lalu buat database baru bernama toko_lelang.
+
+Impor file dump database bernama toko_lelang.sql (yang sudah saya sertakan di folder utama proyek ini) langsung ke dalam database tersebut.
+
+Alternatif: Jika ingin membuat struktur tabel kosong yang fresh, Anda bisa langsung ketik:
+
+php artisan migrate
+
+6. Nyalakan Server lokal!
+Terakhir, jalankan servernya lewat CMD:
+
+php artisan serve
